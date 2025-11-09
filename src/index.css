@@ -1,0 +1,24 @@
+@import "tailwindcss";
+@plugin "daisyui";
+
+a.active{
+  @apply 
+  p-2
+  rounded-3xl
+
+}
+.btn-primary{
+  @apply bg-amber-500 btn btn-active shadow-md border-none text-white
+} 
+.btn-outline{
+    @apply  btn btn-outline shadow-md border-amber-500 text-white
+}
+.btn-primary:hover{
+  @apply bg-amber-600
+}
+.btn-outline:hover{
+  @apply bg-amber-600
+}
+.text-primary{
+   @apply text-amber-500
+}
