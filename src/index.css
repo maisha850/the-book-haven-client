@@ -23,3 +23,6 @@ a.active{
 .text-primary{
    @apply text-amber-500
 }
+td{
+  @apply text-lg font-medium text-slate-600
+}

@@ -5,6 +5,10 @@ import { createBrowserRouter, RouterProvider } from 'react-router'
 import Root from './Root.jsx'
 import Home from './Componants/Home.jsx'
 import AddBooks from './Pages/AddBooks.jsx'
+import AuthProvider from './Auth/AuthProvider.jsx'
+import Register from './Auth/Register.jsx'
+import LogIn from './Auth/LogIn.jsx'
+import AllBooks from './Pages/AllBooks.jsx'
 const router = createBrowserRouter([
   {
     path: '/',
@@ -17,12 +21,27 @@ const router = createBrowserRouter([
       {
         path: '/addBooks',
         Component: AddBooks
+      },
+      {
+        path: '/register',
+        Component: Register
+      },
+       {
+        path: '/logIn',
+        Component: LogIn
+      },
+      {
+        path: '/allBooks',
+        Component: AllBooks
       }
+
     ]
   }
 ])
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-<RouterProvider router={router}></RouterProvider>
+<AuthProvider>
+  <RouterProvider router={router}></RouterProvider>
+</AuthProvider>
   </StrictMode>,
 )
