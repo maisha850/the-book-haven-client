@@ -18,7 +18,7 @@ const LatestBooks = () => {
 
     return (
         <div>
-        <div className='flex justify-center items-center gap-8'>
+        <div className='flex justify-center items-center flex-wrap gap-8'>
             {books.map(book=><BookCard key={book._id} book={book}></BookCard> )}
         </div>
         </div>

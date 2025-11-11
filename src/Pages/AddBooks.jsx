@@ -55,11 +55,11 @@ instance.post('/books', newBooks)
        <form onSubmit={handleAddBooks}>
 
          <fieldset className="fieldset ">
-          <label className="label text-xl ">Title</label>
-          <input type="text" name='title' className="input rounded-full  focus:outline-none focus:ring-2 focus:ring-amber-500 w-full" placeholder="Title" />
-          <label className="label text-xl ">Author</label>
-          <input type="text" name='author' className="input    rounded-full  focus:outline-none focus:ring-2 focus:ring-amber-500 w-full" placeholder="Author" />
-             <select name='category' className='select w-full rounded-full focus:border-0 focus:ring-amber-500 '>
+          <label className="label text-lg text-secondary font-medium ">Title</label>
+          <input type="text" name='title' className="input rounded-full bg-white text-gray-500 focus:outline-none focus:ring-2 focus:ring-amber-500 w-full" placeholder="Title" />
+          <label className="label text-lg text-secondary font-medium ">Author</label>
+          <input type="text" name='author' className="input    rounded-full bg-white text-gray-500  focus:outline-none focus:ring-2 focus:ring-amber-500 w-full" placeholder="Author" />
+             <select name='category' className='select w-full rounded-full bg-white text-gray-500 focus:border-0 focus:ring-amber-500 '>
           <option value="disabled">Select Genre</option>
           <option value="Vehicles">Fantasy</option>
           <option value="Plants">Science Fiction (Sci-Fi)</option>
@@ -67,24 +67,24 @@ instance.post('/books', newBooks)
            <option value="Home & Living">Romance</option>
               <option value="Characters">Horrors</option>
          </select>
-           <label className="label text-xl ">Rating</label>
-          <input type="text" name='rating' className="input    rounded-full  focus:outline-none focus:ring-2 focus:ring-amber-500 w-full" placeholder="Rating" />
+           <label className="label text-lg text-secondary font-medium ">Rating</label>
+          <input type="text" name='rating' className="input    rounded-full bg-white text-gray-500  focus:outline-none focus:ring-2 focus:ring-amber-500 w-full" placeholder="Rating" />
 
-          <label className="label text-xl ">Summary</label>
-     <textarea name="summary" id="" className='textarea w-full focus:outline-none focus:ring-2 focus:ring-amber-500 ' placeholder='Summary'>
+          <label className="label text-lg text-secondary font-medium ">Summary</label>
+     <textarea name="summary" id="" className='textarea w-full  bg-white text-gray-500 focus:outline-none focus:ring-2 focus:ring-amber-500 ' placeholder='Summary'>
 
 
      </textarea>
-      <label className="label font-medium">Thumbnail URL</label>
+      <label className="label text-lg text-secondary font-medium">Thumbnail URL</label>
             <input
               type="url"
               name="thumbnail"
               required
-              className="input w-full rounded-full focus:border-0 focus:outline-purple-200"
+              className="input w-full rounded-full bg-white text-gray-500 focus:border-0 focus:outline-purple-200"
               placeholder="https://example.com/image.jpg"
             />
          
-          <button className="w-full py-3 text-xl  text-slate-50 btn-active btn-primary  mt-4">Add</button>
+          <button className="w-full py-3text-xl   text-slate-50 btn-active btn-primary  mt-4">Add</button>
           
  
           

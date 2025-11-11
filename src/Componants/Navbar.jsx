@@ -1,4 +1,4 @@
-import React, { use } from 'react';
+import React, { use, useEffect, useState } from 'react';
 import { Link, NavLink } from 'react-router';
 import { AuthContext } from '../Auth/AuthContext';
 import Swal from 'sweetalert2';
@@ -18,6 +18,20 @@ const Navbar = () => {
   </> }
   
   </>
+  const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
+
+
+  useEffect(() => {
+    const html = document.querySelector("html");
+    html.setAttribute("data-theme", theme);
+    localStorage.setItem("theme", theme);
+  }, [theme]);
+
+
+  const handleTheme = (checked) => {
+    setTheme(checked ? "dark" : "light");
+  };
+
 
   const handleLogOut=()=>{
     logOut()
@@ -54,9 +68,15 @@ const Navbar = () => {
     </ul>
   </div>
   <div className="navbar-end flex items-center gap-3">
+    <input
+           onChange={(e) => handleTheme(e.target.checked)}
+           type="checkbox"
+           defaultChecked={localStorage.getItem('theme') === "dark"}
+           className="toggle"/>
+
     { user && <div>
       <div className="dropdown dropdown-hover dropdown-center">
-  <div tabIndex={0} role="button" className=" m-1"> <img className={`w-12 h-12 rounded-full`} src={user?.photoURL} alt="" /></div>
+  <div tabIndex={0} role="button" className=" m-1"> <img className={`w-12 h-12 rounded-full`} src={user?.photoURL || 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTFuVWYC8V8zN-N8UpwDUvuQ8eYidEUQfi7U0rJ2JHLKQ&s'} alt="" /></div>
   <ul tabIndex="-1" className="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
     <li><a className='text-lg font-semibold mx-auto'>{user?.displayName}</a></li>
     <button onClick={handleLogOut} className='btn btn-primary '>Log Out</button>

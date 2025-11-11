@@ -6,7 +6,9 @@ const Home = () => {
     return (
         <div>
             <Banner></Banner>
-            <div className='w-11/12 mx-auto'>
+            
+            <div className='w-10/12 mx-auto py-15'>
+            <h3 className='text-5xl font-bold mb-10 text-center'>Latest Books</h3>
                 <LatestBooks></LatestBooks>
             </div>
         </div>

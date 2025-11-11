@@ -1,5 +1,10 @@
 @import "tailwindcss";
-@plugin "daisyui";
+@plugin "daisyui" {
+  themes: light --default, dark --prefersdark;
+}
+
+
+@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
 
 a.active{
     @apply badge  badge-outline text-amber-600 border-amber-600 font-medium
@@ -32,4 +37,10 @@ td{
 }
 .bg-form{
   @apply bg-gradient-to-br from-red-300 via-amber-200 to-stone-400 
+}
+table th{
+  @apply text-gray-600
+}
+table tr:nth-child(even){
+  @apply bg-white/80
 }

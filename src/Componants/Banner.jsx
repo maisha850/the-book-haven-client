@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from "motion/react"
 import book from '../assets/book.png'
+import { Link } from 'react-router';
 
 const Banner = () => {
     return (
@@ -33,12 +34,12 @@ const Banner = () => {
        </div>
 
 <div className='flex gap-2'>
-  <button className="mt-6 px-6 py-3  btn-primary text-white font-semibold rounded-lg  transition duration-300">
+  <Link to='/allBooks' className="mt-6 px-6 py-3  btn-primary text-white font-semibold rounded-lg  transition duration-300">
   All Books
-</button>
-<button className="mt-6 px-6 py-3  btn-outlines text-white font-semibold rounded-lg transition duration-300">
+</Link>
+<Link to="/addBooks" className="mt-6 px-6 py-3  btn-outlines text-white font-semibold rounded-lg transition duration-300">
   Create Book
-</button>
+</Link>
     </div>
 </div>
 
