@@ -1,13 +1,19 @@
 
 import { useLoaderData} from 'react-router';
 
-import axios from 'axios';
+
 import useAuth from '../Hooks/UseAuth';
 
+import useAxiosSecure from '../Hooks/UseAxiosSecure';
+
 const UpdateBooks = () => {
- 
+
   const {user} = useAuth()
 const book = useLoaderData()
+console.log(book)
+const instance = useAxiosSecure()
+
+console.log(book)
   const handleUpdateBooks=(e)=>{
     e.preventDefault()
     const title = e.target.title.value;
@@ -27,9 +33,9 @@ const book = useLoaderData()
   userName : user?.displayName
 
 }
-axios.put(`/books/${book._id}`,newBooks)
+instance.put(`/books/${book._id}`,newBooks)
 .then(data =>{
-  console.log('after put' , data)
+  console.log('after put' , data.data)
 })
  
   }

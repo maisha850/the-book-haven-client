@@ -1,9 +1,11 @@
 
 import React, { useEffect, useState } from 'react';
 
-import useAxios from '../Hooks/UseAxios';
+
 import { Link } from 'react-router';
 import star from '../assets/star.png'
+import useAxios from '../Hooks/UseAxios';
+
 
 
 
@@ -24,7 +26,7 @@ const AllBooks = () => {
     
     
     return (
-       <div className='bg-no-repeat bg-cover min-h-screen hero-overlay' style={{backgroundImage: `url(${'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmG5zPL6awFN1SCYQc2TyE2qo1BCRju4RvPg&s'})`}}>
+       <div>
          <div className='w-11/12 mx-auto py-15'>
             <div className="overflow-x-auto  " >
             <table className='table table-zebra bg-form '>

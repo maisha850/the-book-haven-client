@@ -1,17 +1,19 @@
 import React, { useEffect, useState } from 'react';
-import useAxios from '../Hooks/UseAxios';
-import { Link, useParams } from 'react-router';
+import { Link, useNavigate, useParams } from 'react-router';
 import { IoIosStar, IoIosStarHalf } from 'react-icons/io';
 import { TbCategory, TbCategoryFilled } from 'react-icons/tb';
 import { FaRegUser } from 'react-icons/fa6';
 import { MdAttachEmail } from 'react-icons/md';
 import useAuth from '../Hooks/UseAuth';
+import useAxiosSecure from '../Hooks/UseAxiosSecure';
+import Swal from 'sweetalert2';
 
 const BookDetails = () => {
     const {user}=useAuth()
   const [book , setBook]=useState({})
+  const navigate = useNavigate()
     const {id}=useParams()
-    const instance = useAxios()
+    const instance = useAxiosSecure()
     useEffect(()=>{
         instance.get(`/books/${id}`)
         .then(data=>{
@@ -20,6 +22,35 @@ const BookDetails = () => {
         })
 
     },[instance, id])
+
+    const handleDelete=()=>{
+        Swal.fire({
+  title: "Are you sure?",
+  text: "You won't be able to revert this!",
+  icon: "warning",
+  showCancelButton: true,
+  confirmButtonColor: "#3085d6",
+  cancelButtonColor: "#d33",
+  confirmButtonText: "Yes, delete it!"
+}).then((result) => {
+  if (result.isConfirmed) {
+      instance.delete(`/books/${book._id}`)
+      .then(data =>{
+            console.log('after delete' , data.data)
+             Swal.fire({
+      title: "Deleted!",
+      text: "Your file has been deleted.",
+      icon: "success"
+    });
+navigate('/allBooks')
+        })
+   
+  }
+});
+      
+        
+
+    }
     return (
         <div className='flex justify-center  gap-8 w-11/12 mx-auto py-15'>
           <div className='border p-4 rounded-2xl border-gray-500'>
@@ -43,8 +74,9 @@ const BookDetails = () => {
  <p className='font-semibold flex items-center '><MdAttachEmail size={20} color='#F59E0B'/> EMAIL:<span className='text-secondary ml-3 font-medium'>{user.email}</span> </p>
  </div>
 
- <div>
+ <div className='flex items-center gap-4'>
     <Link to={`/updateBooks/${book._id}`} className="w-full py-3 text-xl  text-slate-50 btn-active btn-primary  mt-4">Update</Link>
+    <button onClick={handleDelete} className='w-full py-3 text-xl  text-slate-50 btn-active btn-primary  mt-4'>Delete</button>
  </div>
            
 

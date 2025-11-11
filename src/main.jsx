@@ -12,6 +12,7 @@ import AllBooks from './Pages/AllBooks.jsx'
 import BookDetails from './Pages/BookDetails.jsx'
 import UpdateBooks from './Pages/UpdateBooks.jsx'
 
+import PrivateRoute from './Auth/PrivateRoute.jsx'
 const router = createBrowserRouter([
   {
     path: '/',
@@ -39,12 +40,16 @@ const router = createBrowserRouter([
       },
       {
         path:'/books/:id',
-        Component: BookDetails
+       element: <PrivateRoute>
+        <BookDetails></BookDetails>
+       </PrivateRoute>
       },
       {
         path: '/updateBooks/:id',
         loader: ({params})=>fetch(`http://localhost:3000/${params.id}`),
-        Component: UpdateBooks
+       element: <PrivateRoute>
+        <UpdateBooks></UpdateBooks>
+       </PrivateRoute>
       }
 
     ]

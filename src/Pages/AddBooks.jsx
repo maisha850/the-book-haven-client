@@ -1,7 +1,9 @@
 import React from 'react';
 import useAuth from '../Hooks/UseAuth';
+
+
 import useAxios from '../Hooks/UseAxios';
-import { Link } from 'react-router';
+import Swal from 'sweetalert2';
 
 const AddBooks = () => {
   const {user} = useAuth()
@@ -25,10 +27,19 @@ const newBooks = {
   userName : user?.displayName
 
 }
-instance.post('/books',newBooks)
+instance.post('/books', newBooks)
 .then(data=>{
   console.log('After post ' , data.data)
-  
+   if(data.data.insertedId){
+                Swal.fire({
+                 position: "top-center",
+                 icon: "success",
+                 title: "Your book has been added",
+                 showConfirmButton: false,
+                 timer: 1500
+               });
+            }
+
 
 })
 
