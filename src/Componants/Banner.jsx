@@ -36,7 +36,7 @@ const Banner = () => {
   <button className="mt-6 px-6 py-3  btn-primary text-white font-semibold rounded-lg  transition duration-300">
   All Books
 </button>
-<button className="mt-6 px-6 py-3  btn-outline text-white font-semibold rounded-lg transition duration-300">
+<button className="mt-6 px-6 py-3  btn-outlines text-white font-semibold rounded-lg transition duration-300">
   Create Book
 </button>
     </div>

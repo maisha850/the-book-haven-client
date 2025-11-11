@@ -9,6 +9,9 @@ import AuthProvider from './Auth/AuthProvider.jsx'
 import Register from './Auth/Register.jsx'
 import LogIn from './Auth/LogIn.jsx'
 import AllBooks from './Pages/AllBooks.jsx'
+import BookDetails from './Pages/BookDetails.jsx'
+import UpdateBooks from './Pages/UpdateBooks.jsx'
+
 const router = createBrowserRouter([
   {
     path: '/',
@@ -33,6 +36,15 @@ const router = createBrowserRouter([
       {
         path: '/allBooks',
         Component: AllBooks
+      },
+      {
+        path:'/books/:id',
+        Component: BookDetails
+      },
+      {
+        path: '/updateBooks/:id',
+        loader: ({params})=>fetch(`http://localhost:3000/${params.id}`),
+        Component: UpdateBooks
       }
 
     ]

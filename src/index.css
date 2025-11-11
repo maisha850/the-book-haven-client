@@ -2,27 +2,34 @@
 @plugin "daisyui";
 
 a.active{
-    @apply badge  badge-outline text-amber-500 border-amber-500 font-medium
+    @apply badge  badge-outline text-amber-600 border-amber-600 font-medium
   px-2
   rounded-3xl 
 
 
 }
 .btn-primary{
-  @apply bg-amber-500 btn btn-active shadow-md border-none text-white
+  @apply bg-gradient-to-br from-red-700 via-amber-600 to-stone-900
+ btn btn-active shadow-md border-none text-white
 } 
-.btn-outline{
+.btn-outlines{
     @apply  btn btn-outline shadow-md border-amber-500 text-white
 }
 .btn-primary:hover{
-  @apply bg-amber-600
+  @apply opacity-80
 }
-.btn-outline:hover{
-  @apply bg-amber-600
+.btn-outlines:hover{
+  @apply  bg-gradient-to-br from-red-800 hover:via-amber-700 hover:to-stone-950
 }
 .text-primary{
    @apply text-amber-500
 }
 td{
   @apply text-lg font-medium text-slate-600
+}
+.text-secondary{
+  @apply text-gray-600
+}
+.bg-form{
+  @apply bg-gradient-to-br from-red-300 via-amber-200 to-stone-400 
 }

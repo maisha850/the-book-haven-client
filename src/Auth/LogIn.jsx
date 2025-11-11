@@ -56,7 +56,7 @@ console.log(res.user)
             <title>Register</title>
                   <h1 className="text-5xl font-bold text-center my-10 ">LogIN now!</h1>
              <div className="card  md:w-150 shrink-0 shadow-2xl mx-auto">
-      <div className="card-body ">
+      <div className="card-body bg-form rounded-2xl ">
        <form onSubmit={handleLogIn}>
 
          <fieldset className="fieldset ">

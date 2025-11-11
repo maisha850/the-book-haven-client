@@ -9,6 +9,7 @@ const Navbar = () => {
   <NavLink to='/' className='mr-8 font-medium'>Home</NavLink>
   <NavLink to='/allBooks' className='mr-8 font-medium'>All Books</NavLink>
   <NavLink to='/addBooks' className='mr-8 font-medium'>Add Books</NavLink>
+  
   </>
   const handleLogOut=()=>{
     logOut()

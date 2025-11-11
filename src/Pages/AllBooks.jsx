@@ -9,6 +9,7 @@ import star from '../assets/star.png'
 
 
 
+
 const AllBooks = () => {
     const axiosSec = useAxios()
     const [books, setBooks]=useState([])
@@ -26,7 +27,7 @@ const AllBooks = () => {
        <div className='bg-no-repeat bg-cover min-h-screen hero-overlay' style={{backgroundImage: `url(${'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmG5zPL6awFN1SCYQc2TyE2qo1BCRju4RvPg&s'})`}}>
          <div className='w-11/12 mx-auto py-15'>
             <div className="overflow-x-auto  " >
-            <table className='table table-zebra bg-white/80 '>
+            <table className='table table-zebra bg-form '>
                  <thead className='bg-white/80 w-full'>
       <tr>
        
@@ -69,7 +70,7 @@ const AllBooks = () => {
         <td> {book.rating}</td>
         </td>
         <th>
-       <Link className='btn bg-amber-500 btn-sm rounded-3xl text-white shadow-xl'>View details</Link>
+       <Link to={`/books/${book._id}`} className='btn bg-gradient-to-br from-red-700 via-amber-600 to-stone-900  btn-sm rounded-3xl text-white shadow-xl'>View details</Link>
         </th>
         <div className="divider"></div>
       </tr> 

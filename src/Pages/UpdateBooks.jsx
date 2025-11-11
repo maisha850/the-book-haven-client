@@ -1,12 +1,14 @@
-import React from 'react';
-import useAuth from '../Hooks/UseAuth';
-import useAxios from '../Hooks/UseAxios';
-import { Link } from 'react-router';
 
-const AddBooks = () => {
+import { useLoaderData} from 'react-router';
+
+import axios from 'axios';
+import useAuth from '../Hooks/UseAuth';
+
+const UpdateBooks = () => {
+ 
   const {user} = useAuth()
-  const instance = useAxios()
-  const handleAddBooks=(e)=>{
+const book = useLoaderData()
+  const handleUpdateBooks=(e)=>{
     e.preventDefault()
     const title = e.target.title.value;
     const author = e.target.author.value;
@@ -14,7 +16,7 @@ const AddBooks = () => {
     const rating = e.target.rating.value;
     const summary = e.target.summary.value;
     const thumbnail = e.target.thumbnail.value;
-const newBooks = {
+     const newBooks = {
   title : title ,
   author : author,
   genre :category,
@@ -25,29 +27,28 @@ const newBooks = {
   userName : user?.displayName
 
 }
-instance.post('/books',newBooks)
-.then(data=>{
-  console.log('After post ' , data.data)
-  
-
+axios.put(`/books/${book._id}`,newBooks)
+.then(data =>{
+  console.log('after put' , data)
 })
-
-
+ 
   }
+  
+ 
     return (
-         <div>
+          <div>
          
-                  <h1 className="text-5xl font-bold text-center my-10 ">Add A Book</h1>
+                  <h1 className="text-5xl font-bold text-center my-10 ">Update the Book</h1>
              <div className="card  md:w-150 shrink-0 shadow-2xl mx-auto">
       <div className="card-body bg-form rounded-2xl ">
-       <form onSubmit={handleAddBooks}>
+       <form onSubmit={handleUpdateBooks}>
 
          <fieldset className="fieldset ">
           <label className="label text-xl ">Title</label>
-          <input type="text" name='title' className="input rounded-full  focus:outline-none focus:ring-2 focus:ring-amber-500 w-full" placeholder="Title" />
+          <input defaultValue={book.title} type="text" name='title' className="input rounded-full  focus:outline-none focus:ring-2 focus:ring-amber-500 w-full" placeholder="Title" />
           <label className="label text-xl ">Author</label>
-          <input type="text" name='author' className="input    rounded-full  focus:outline-none focus:ring-2 focus:ring-amber-500 w-full" placeholder="Author" />
-             <select name='category' className='select w-full rounded-full focus:border-0 focus:ring-amber-500 '>
+          <input defaultValue={book.author} type="text" name='author' className="input    rounded-full  focus:outline-none focus:ring-2 focus:ring-amber-500 w-full" placeholder="Author" />
+             <select defaultValue={book.category} name='category' className='select w-full rounded-full focus:border-0 focus:ring-amber-500 '>
           <option value="disabled">Select Genre</option>
           <option value="Vehicles">Fantasy</option>
           <option value="Plants">Science Fiction (Sci-Fi)</option>
@@ -56,15 +57,17 @@ instance.post('/books',newBooks)
               <option value="Characters">Horrors</option>
          </select>
            <label className="label text-xl ">Rating</label>
-          <input type="text" name='rating' className="input    rounded-full  focus:outline-none focus:ring-2 focus:ring-amber-500 w-full" placeholder="Rating" />
+          <input defaultValue={book.rating} type="text" name='rating' className="input    rounded-full  focus:outline-none focus:ring-2 focus:ring-amber-500 w-full" placeholder="Rating" />
 
-          <label className="label text-xl ">Summary</label>
+          <label defaultValue={book.summary} className="label text-xl ">Summary</label>
      <textarea name="summary" id="" className='textarea w-full focus:outline-none focus:ring-2 focus:ring-amber-500 ' placeholder='Summary'>
 
 
      </textarea>
       <label className="label font-medium">Thumbnail URL</label>
+      
             <input
+            defaultValue={book.thumbnail}
               type="url"
               name="thumbnail"
               required
@@ -72,9 +75,7 @@ instance.post('/books',newBooks)
               placeholder="https://example.com/image.jpg"
             />
          
-          <button className="w-full py-3 text-xl  text-slate-50 btn-active btn-primary  mt-4">Add</button>
-          
- 
+          <button className="w-full py-3 text-xl  text-slate-50 btn-active btn-primary  mt-4">Updated</button>
           
 
         </fieldset>
@@ -88,4 +89,4 @@ instance.post('/books',newBooks)
     );
 };
 
-export default AddBooks;
+export default UpdateBooks;
