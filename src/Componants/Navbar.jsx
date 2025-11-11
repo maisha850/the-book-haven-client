@@ -8,10 +8,17 @@ const Navbar = () => {
   const {logOut , user} = use(AuthContext)
   const links = <>
   <NavLink to='/' className='mr-8 font-medium'>Home</NavLink>
+  <NavLink to='/about' className='mr-8 font-medium'>About</NavLink>
   <NavLink to='/allBooks' className='mr-8 font-medium'>All Books</NavLink>
   <NavLink to='/addBooks' className='mr-8 font-medium'>Add Books</NavLink>
+  <NavLink to='/myBooks' className='mr-8 font-medium'>My Books</NavLink>
+  {!user && <>
+  <NavLink to='/logIn' className='mr-8 font-medium'>Log In</NavLink>
+  <NavLink to='/register' className='mr-8 font-medium'>Register</NavLink>
+  </> }
   
   </>
+
   const handleLogOut=()=>{
     logOut()
     .then((res)=>{
@@ -46,7 +53,17 @@ const Navbar = () => {
    {links}
     </ul>
   </div>
-  <div className="navbar-end">
+  <div className="navbar-end flex items-center gap-3">
+    { user && <div>
+      <div className="dropdown dropdown-hover dropdown-center">
+  <div tabIndex={0} role="button" className=" m-1"> <img className={`w-12 h-12 rounded-full`} src={user?.photoURL} alt="" /></div>
+  <ul tabIndex="-1" className="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
+    <li><a className='text-lg font-semibold mx-auto'>{user?.displayName}</a></li>
+    <button onClick={handleLogOut} className='btn btn-primary '>Log Out</button>
+  </ul>
+</div>
+     
+      </div>}
    { user ? <button className='btn-primary' onClick={handleLogOut}>Log Out</button> : <Link className='btn-primary' to='/logIn'>Log In</Link>}
   </div>
 </div>

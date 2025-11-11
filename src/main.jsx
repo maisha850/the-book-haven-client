@@ -13,6 +13,8 @@ import BookDetails from './Pages/BookDetails.jsx'
 import UpdateBooks from './Pages/UpdateBooks.jsx'
 
 import PrivateRoute from './Auth/PrivateRoute.jsx'
+import About from './Componants/About.jsx'
+import MyBook from './Pages/MyBook.jsx'
 const router = createBrowserRouter([
   {
     path: '/',
@@ -24,7 +26,9 @@ const router = createBrowserRouter([
       },
       {
         path: '/addBooks',
-        Component: AddBooks
+      element: <PrivateRoute>
+        <AddBooks></AddBooks>
+      </PrivateRoute>
       },
       {
         path: '/register',
@@ -39,6 +43,10 @@ const router = createBrowserRouter([
         Component: AllBooks
       },
       {
+        path: '/about',
+        Component: About
+      },
+      {
         path:'/books/:id',
        element: <PrivateRoute>
         <BookDetails></BookDetails>
@@ -50,6 +58,12 @@ const router = createBrowserRouter([
        element: <PrivateRoute>
         <UpdateBooks></UpdateBooks>
        </PrivateRoute>
+      },
+      {
+        path: '/myBooks',
+        element: <PrivateRoute>
+          <MyBook></MyBook>
+        </PrivateRoute>
       }
 
     ]

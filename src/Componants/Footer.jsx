@@ -23,6 +23,7 @@ const Footer = () => {
             <li>Our Mission</li>
             <li>Contact Saled</li>
             <li>Press kit</li>
+            <li>Blog</li>
 
             </ul>
         </div>

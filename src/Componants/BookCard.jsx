@@ -8,7 +8,7 @@ const BookCard = ({book}) => {
             <div className="card bg-base-100 w-80 shadow-sm">
   <figure className='bg-orange-100 py-4'>
     <img
-    className='hover:scale-105 transition-transform duration-200 w-50 h-80'
+    className='hover:scale-105 transition-transform duration-200 w-50 h-80 '
       src={coverImage}
       alt="Shoes" />
   </figure>
