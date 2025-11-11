@@ -1,23 +1,24 @@
 import React from 'react';
 import { FaFacebookF, FaLinkedinIn, FaXTwitter } from 'react-icons/fa6';
 import { Link } from 'react-router';
+import Logo from './Logo';
 
 const Footer = () => {
     return (
          <div>
-           <div className='bg-gradient-to-r from-[#0f172a] to-[#073c76] pt-20 pb-5 lg:pl-0 pl-4'>
+           <div className='bg-gradient-to-br from-red-800 via-amber-600 to-stone-900  pt-20 pb-5 lg:pl-0 pl-4'>
             <div className='flex lg:flex-row md:gap-0 gap-8 flex-col justify-center'>
         <div className='mr-26'>
             <Link to="/" className='flex items-center'>
  <a  className=" text-xl  uppercase font-bold"></a>
-        <h3 className=' font-bold uppercase  text-2xl text-[#38bdf8]'>game<span>HUB</span><span className='text-2xl text-blue-500'>X</span></h3>
+<Logo></Logo>
     </Link>
-            <p className='text-[#A1A1AA] w-[350px] mt-3'>GameHUBX is an AI-powered Web3 platform that helps users navigate the crypto world with confidence. It combines intelligent search, real-time market tools to make crypto research and trading safer and easier.</p>
+            <p className='text-white w-[350px] mt-3'>Welcome to Book Haven, your ultimate destination for discovering, reading, and enjoying books online. From timeless classics to modern bestsellers, Book Haven brings the world of literature to your fingertips. Explore thousands of eBooks.</p>
 
         </div>
         <div className='mr-26'>
             <h3 className='text-xl font-medium text-white mb-2'>Company</h3>
-            <ul className='text-[#A1A1AA] list-none space-y-2'>
+            <ul className='text-white list-none space-y-2'>
                 <li>About us</li>
             <li>Our Mission</li>
             <li>Contact Saled</li>
@@ -28,7 +29,7 @@ const Footer = () => {
       
         <div className='mr-26'>
             <h3 className='text-xl font-medium text-white mb-2'>Inforamation</h3>
-            <ul className='text-[#A1A1AA] list-none space-y-2'>
+            <ul className='text-white list-none space-y-2'>
                 <li>Privacy Policy</li>
             <li>Terms & Conditions</li>
             <li>Join us</li>
@@ -50,7 +51,7 @@ const Footer = () => {
 
             
         </div>
-          <h3 className='text-[#A1A1AA] text-center mt-20 '>©2025the book haven. All rights reserved.</h3>
+          <h3 className='text-white text-center mt-20 '>©2025theBookHaven. All rights reserved.</h3>
         </div> 
         </div>
     );

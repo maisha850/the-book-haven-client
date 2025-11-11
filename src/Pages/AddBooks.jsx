@@ -24,7 +24,8 @@ const newBooks = {
   summary : summary,
   coverImage : thumbnail,
   userEmail: user.email,
-  userName : user?.displayName
+  userName : user?.displayName,
+  created_at : new Date()
 
 }
 instance.post('/books', newBooks)

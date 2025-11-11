@@ -70,7 +70,7 @@ instance.put(`/books/${book._id}`,newBooks)
 
 
      </textarea>
-      <label className="label font-medium">Thumbnail URL</label>
+      <label className="label font-medium">CoverImage URL</label>
       
             <input
             defaultValue={book.thumbnail}

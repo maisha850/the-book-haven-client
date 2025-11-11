@@ -2,6 +2,7 @@ import React, { use } from 'react';
 import { Link, NavLink } from 'react-router';
 import { AuthContext } from '../Auth/AuthContext';
 import Swal from 'sweetalert2';
+import Logo from './Logo';
 
 const Navbar = () => {
   const {logOut , user} = use(AuthContext)
@@ -26,7 +27,7 @@ const Navbar = () => {
     })
   }
     return (
-        <div className="navbar bg-base-100 shadow-sm">
+        <div className="navbar bg-base-100 shadow-sm px-5">
   <div className="navbar-start">
     <div className="dropdown">
       <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -38,7 +39,7 @@ const Navbar = () => {
        {links}
       </ul>
     </div>
-    <a className=" text-xl">daisyUI</a>
+    <a className=" text-xl"><Logo></Logo></a>
   </div>
   <div className="navbar-center hidden lg:flex ">
     <ul className="menu menu-horizontal px-1">
