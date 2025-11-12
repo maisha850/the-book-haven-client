@@ -1,12 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useNavigate, useParams } from 'react-router';
 import { IoIosStar, IoIosStarHalf } from 'react-icons/io';
-import { TbCategory, TbCategoryFilled } from 'react-icons/tb';
+import { TbCategory } from 'react-icons/tb';
+// import { formatDistanceToNow } from "date-fns";
 import { FaRegUser } from 'react-icons/fa6';
 import { MdAttachEmail } from 'react-icons/md';
 import useAuth from '../Hooks/UseAuth';
 import useAxiosSecure from '../Hooks/UseAxiosSecure';
 import Swal from 'sweetalert2';
+import useAxios from '../Hooks/UseAxios';
+import Comments from './Comments';
 
 const BookDetails = () => {
     const {user}=useAuth()
@@ -14,6 +17,10 @@ const BookDetails = () => {
   const navigate = useNavigate()
     const {id}=useParams()
     const instance = useAxiosSecure()
+    const axiosInstance = useAxios()
+//     const date = new Date(); 
+// const time = formatDistanceToNow(date, { addSuffix: true });
+
     useEffect(()=>{
         instance.get(`/books/${id}`)
         .then(data=>{
@@ -51,8 +58,27 @@ navigate('/allBooks')
         
 
     }
+    const handleComment=(e)=>{
+       e.preventDefault()
+       const comment = e.target.comment.value
+       const newComment={
+        comment: comment,
+        book_id: book._id,
+        name: user?.displayName,
+        photo: user?.photoURL,
+        time : new Date().toISOString()
+        
+       }
+       axiosInstance.post('/comments', newComment)
+       .then(data => {
+        console.log('after comment', data.data)
+       })
+
+    }
+
     return (
-        <div className='flex justify-center  gap-8 w-11/12 mx-auto py-15'>
+      <div className='w-10/12 mx-auto py-15'>
+        <div className='flex justify-center  gap-8 '>
           <div className='border p-4 rounded-2xl border-gray-500'>
               <img className='w-100 h-120 rounded-2xl' src={book.coverImage} alt="" />
           </div>
@@ -70,19 +96,25 @@ navigate('/allBooks')
 
  <div className='space-y-2 mt-5'>
     <p className='font-semibold flex items-center'> <TbCategory size={20} color='#22C55E'/> CATEGORY:  <span className='text-secondary ml-3 font-medium'>{book.genre}</span> </p>
- <p className='font-semibold flex items-center'><FaRegUser size={20} color='#3B82F6' /> PUBLISHER:  <span className='text-secondary ml-2.5 font-medium'>{user?.displayName}</span> </p>
- <p className='font-semibold flex items-center '><MdAttachEmail size={20} color='#F59E0B'/> EMAIL:<span className='text-secondary ml-3 font-medium'>{user.email}</span> </p>
+ <p className='font-semibold flex items-center'><FaRegUser size={20} color='#3B82F6' /> PUBLISHER:  <span className='text-secondary ml-2.5 font-medium'>{book.userName}</span> </p>
+ <p className='font-semibold flex items-center '><MdAttachEmail size={20} color='#F59E0B'/> EMAIL:<span className='text-secondary ml-3 font-medium'>{book.userEmail}</span> </p>
  </div>
-
- <div className='flex items-center gap-4'>
-    <Link to={`/updateBooks/${book._id}`} className="w-full py-3 text-xl  text-slate-50 btn-active btn-primary  mt-4">Update</Link>
-    <button onClick={handleDelete} className='w-full py-3 text-xl  text-slate-50 btn-active btn-primary  mt-4'>Delete</button>
- </div>
-           
-
             </div>
+         
            
             
+        </div>
+           <div>
+           <form onSubmit={handleComment} className='flex flex-col mt-6'>
+               <label className='text-xl font-semibold mb-3'>Comment</label>
+              
+               <textarea name="comment"  className='textarea' placeholder='Add a comment...'></textarea>
+             
+              <button className='btn btn-sm w-22 mt-3 bg-gradient-to-br from-red-700 via-amber-600 to-stone-900 text-white'>Comment</button>
+           </form>
+           <Comments id={id}></Comments>
+            </div>
+       
         </div>
     );
 };

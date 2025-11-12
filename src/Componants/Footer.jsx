@@ -2,8 +2,13 @@ import React from 'react';
 import { FaFacebookF, FaLinkedinIn, FaXTwitter } from 'react-icons/fa6';
 import { Link } from 'react-router';
 import Logo from './Logo';
+import { getYear } from "date-fns";
+
+
 
 const Footer = () => {
+    
+  const currentYear = getYear(new Date());
     return (
          <div>
            <div className='bg-gradient-to-br from-red-800 via-amber-600 to-stone-900  pt-20 pb-5 lg:pl-0 pl-4'>
@@ -52,7 +57,7 @@ const Footer = () => {
 
             
         </div>
-          <h3 className='text-white text-center mt-20 '>©2025theBookHaven. All rights reserved.</h3>
+          <h3 className='text-white text-center mt-20 '>©{currentYear} theBookHaven. All rights reserved.</h3>
         </div> 
         </div>
     );

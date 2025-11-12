@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import useAuth from '../Hooks/UseAuth';
 
 import { useNavigate } from 'react-router';
@@ -9,6 +9,7 @@ const AddBooks = () => {
   const {user} = useAuth()
   const instance = useAxiosSecure()
   const navigate = useNavigate()
+  const[loading, setLoading]=useState(true)
   const handleAddBooks=(e)=>{
     e.preventDefault()
     const title = e.target.title.value;
@@ -37,10 +38,14 @@ instance.post('/books', newBooks)
             }
 
             navigate('/allBooks')
+            setLoading(false)
 
 
 })
-
+if(loading){
+      return <span className='loading loading-dots loading-xl mx-auto '></span>
+    }
+    
 
   }
     return (

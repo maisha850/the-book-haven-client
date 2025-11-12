@@ -6,23 +6,23 @@ import { Link } from 'react-router';
 import star from '../assets/star.png'
 import useAxios from '../Hooks/UseAxios';
 
-
-
-
-
-
-
 const AllBooks = () => {
     const axiosSec = useAxios()
     const [books, setBooks]=useState([])
+    const[loading, setLoading]=useState(true)
     useEffect(()=>{
         axiosSec.get('/books')
         .then(data => {
             console.log('after post' , data.data)
             setBooks(data.data)
+            setLoading(false)
 
         })
     },[axiosSec])
+
+    if(loading){
+      return <span className='loading loading-dots loading-xl mx-auto'></span>
+    }
     
     
     return (
