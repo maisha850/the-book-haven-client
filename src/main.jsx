@@ -15,10 +15,13 @@ import UpdateBooks from './Pages/UpdateBooks.jsx'
 import PrivateRoute from './Auth/PrivateRoute.jsx'
 import About from './Componants/About.jsx'
 import MyBook from './Pages/MyBook.jsx'
+import ErrorPage from './Componants/ErrorPage.jsx'
 const router = createBrowserRouter([
+  
   {
     path: '/',
     Component: Root,
+    errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
         index: true,
@@ -54,10 +57,12 @@ const router = createBrowserRouter([
       },
       {
         path: '/updateBooks/:id',
-        loader: ({params})=>fetch(`http://localhost:3000/books/${params.id}`),
-       element: <PrivateRoute>
-        <UpdateBooks></UpdateBooks>
-       </PrivateRoute>
+        loader: ({params})=>fetch(`http://localhost:3000/updateBooks/${params.id}`),
+       element: 
+        <PrivateRoute>
+          <UpdateBooks></UpdateBooks>
+        </PrivateRoute>
+    
       },
       {
         path: '/myBooks',

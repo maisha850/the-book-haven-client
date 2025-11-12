@@ -1,10 +1,11 @@
 import React from 'react';
 import { IoIosStar, IoIosStarHalf } from 'react-icons/io';
+import { Link } from 'react-router';
 
 const BookCard = ({book}) => {
-    const {coverImage , author , title , rating}=book
+    const {coverImage , author , title , rating, _id}=book
     return (
-        <div>
+        <Link to={`/books/${_id}`}>
             <div className="card border border-gray-300 bg-base-100 w-80 shadow-sm">
   <figure className='bg-orange-100 py-4'>
     <img
@@ -21,7 +22,7 @@ const BookCard = ({book}) => {
  
   </div>
 </div>
-        </div>
+        </Link>
     );
 };
 

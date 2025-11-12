@@ -57,7 +57,7 @@ navigate('/allBooks')
               <img className='w-100 h-120 rounded-2xl' src={book.coverImage} alt="" />
           </div>
             <div>
-                <button className='btn btn-soft btn-success mt-3'>In Stock</button>
+      
 <h3 className='text-4xl font-bold'>{book.title}</h3>
 <div className='flex gap-6 mt-3'>
     <p className='text-lg '>Author:<span className='text-secondary'> {book.author} </span></p>

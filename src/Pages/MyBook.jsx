@@ -96,7 +96,7 @@ const MyBook = () => {
         <td> {book.rating}</td>
         
         <td className='flex flex-col items-center gap-3 '>
-       <Link to={`/books/${book._id}`} className='btn bg-gradient-to-br from-red-700 via-amber-600 to-stone-900  btn-sm rounded-3xl text-white shadow-xl'>Update</Link>
+       <Link to={`/updateBooks/${book._id}`} className='btn bg-gradient-to-br from-red-700 via-amber-600 to-stone-900  btn-sm rounded-3xl text-white shadow-xl'>Update</Link>
        <Link onClick={()=>handleDelete(book._id)} className='btn btn-outline border-amber-600 text-amber-700  btn-sm rounded-3xl  shadow-xl'>Delete</Link>
         </td>
         
