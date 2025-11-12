@@ -1,7 +1,9 @@
 import React, { use } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router';
 import { AuthContext } from './AuthContext';
-import Swal from 'sweetalert2';
+
+import toast from 'react-hot-toast';
+
 
 const LogIn = () => {
       const{logInUser,signWithGoogle}=use(AuthContext)
@@ -16,21 +18,12 @@ const LogIn = () => {
     .then((res)=>{
       console.log(res.user)
    
-   Swal.fire({
-     title: "LogIN Successfully!",
-     icon: "success",
-     draggable: true
-   });
+  toast.success('Log In successfully')
       navigate(location.state || '/')
     })
     .catch((err)=>{
       console.log(err.message)
-      Swal.fire({
-        icon: "error",
-        title: "Oops...",
-        text: `${err.message}`,
-       
-      });
+    toast.error(err.message)
     })
 
   }
@@ -42,12 +35,7 @@ console.log(res.user)
     })
     .catch((err)=>{
       console.log(err.message)
-       Swal.fire({
-        icon: "error",
-        title: "Oops...",
-        text: `${err.message}`,
-       
-      });
+      toast.error(err.message)
     })
   }
 

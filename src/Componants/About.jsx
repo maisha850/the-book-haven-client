@@ -2,10 +2,10 @@ import React from 'react';
 
 const About = () => {
     return (
-        <div className='w-10/12 mx-auto py-15 text-center '>
-            <h2 className='text-3xl font-bold text-center mb-5'>About The Book Haven</h2>
+        <div className='w-10/12 mx-auto  text-center  '>
+          <h3 className='text-5xl font-bold mb-5 text-center'>About</h3>
            
-            <h3 className=' '>
+            <h3 className='mb-15 '>
 
 Welcome to The Book Haven — a cozy corner of the internet built for dreamers, thinkers, and storytellers.
 

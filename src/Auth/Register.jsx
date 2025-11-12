@@ -1,10 +1,11 @@
 import React, { use } from 'react';
 import { Link, useNavigate } from 'react-router';
 import { AuthContext } from './AuthContext';
-import Swal from 'sweetalert2';
+
+import toast from 'react-hot-toast';
 
 const Register = () => {
-   const {createUser , setUser, signWithGoogle}=use(AuthContext)
+   const {createUser , setUser, updateUser, signWithGoogle}=use(AuthContext)
   const navigate=useNavigate()
   
   const handleRegister=(e)=>{
@@ -12,42 +13,38 @@ const Register = () => {
     
     const email=e.target.email.value
     const password=e.target.password.value
+    const displayName=e.target.name.value
+    const photoURL=e.target.photo.value
     const pattern = /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/
 
 ;
     if(!pattern.test(password)){
      
-      return Swal.fire({
-  icon: "error",
-  title: "Oops...",
-  text: "Password must be at least 6 characters long and includes at least one uppercase and one lower case",
-
-});
+      return toast.error("Password must be at least 6 characters long and includes at least one uppercase and one lower case")
 
     }
     createUser(email,password)
     .then((res)=>{
-   
-    console.log(res.user)
+      updateUser(displayName, photoURL)
+      .then(()=>{
+ console.log(res.user)
     setUser(res.user)
-    
-Swal.fire({
-  title: "Registered Successfully!",
-  icon: "success",
-  draggable: true
-});
+ toast.success('Registered Successfully!')
 navigate('/')
+      })
+      .catch(err=>{
+        console.log(err.message)
+      })
+   
+   
+    
+
 
      
     })
     .catch((err)=>{
       console.log(err.message)
-      Swal.fire({
-  icon: "error",
-  title: "Oops...",
-  text: `${err.message}`,
- 
-});
+   toast.error(err.message)
 
     })
    
@@ -64,12 +61,7 @@ navigate('/')
     })
     .catch((err)=>{
       console.log(err.message)
-       Swal.fire({
-  icon: "error",
-  title: "Oops...",
-  text: `${err.message}`,
- 
-});
+ toast.error(err.message)
     })
   }
     return (
@@ -82,13 +74,13 @@ navigate('/')
 
          <fieldset className="fieldset ">
            <label className="label  text-lg text-secondary font-medium ">Name</label>
-          <input type="text" name='name' className="input bg-white text-gray-500 focus:outline-none focus:ring-2 focus:ring-amber-500 w-full" placeholder="Name" />
+          <input type="text" name='name' className="input bg-white text-gray-800 focus:outline-none focus:ring-2 focus:ring-amber-500 w-full" placeholder="Name" />
           <label className="label  text-lg text-secondary font-medium ">Photo URL</label>
-          <input type="text" name='photo' className="input bg-white text-gray-500 focus:outline-none focus:ring-2 focus:ring-amber-500 w-full" placeholder="Photo URL" />
+          <input type="text" name='photo' className="input bg-white text-gray-800 focus:outline-none focus:ring-2 focus:ring-amber-500 w-full" placeholder="Photo URL" />
           <label className="label  text-lg text-secondary font-medium ">Email</label>
-          <input type="email" name='email' className="input bg-white text-gray-500 focus:outline-none focus:ring-2 focus:ring-amber-500 w-full" placeholder="Email" />
+          <input type="email" name='email' className="input bg-white text-gray-800 focus:outline-none focus:ring-2 focus:ring-amber-500 w-full" placeholder="Email" />
           <label className="label  text-lg text-secondary font-medium ">Password</label>
-          <input type="password" name='password' className="input bg-white text-gray-500  focus:outline-none focus:ring-2 focus:ring-amber-500 w-full" placeholder="Password" />
+          <input type="password" name='password' className="input bg-white text-gray-800  focus:outline-none focus:ring-2 focus:ring-amber-500 w-full" placeholder="Password" />
           <div><a className="link link-hover text-secondary font-medium  ">Forgot password?</a></div>
           <button className="w-full py-3 rounded-md text-slate-50 btn-active btn-primary mt-4">Register</button>
           

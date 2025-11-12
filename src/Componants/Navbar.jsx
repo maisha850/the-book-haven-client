@@ -1,14 +1,13 @@
 import React, { use, useEffect, useState } from 'react';
 import { Link, NavLink } from 'react-router';
 import { AuthContext } from '../Auth/AuthContext';
-import Swal from 'sweetalert2';
 import Logo from './Logo';
+import toast from 'react-hot-toast';
 
 const Navbar = () => {
   const {logOut , user} = use(AuthContext)
   const links = <>
   <NavLink to='/' className='mr-8 font-medium'>Home</NavLink>
-  <NavLink to='/about' className='mr-8 font-medium'>About</NavLink>
   <NavLink to='/allBooks' className='mr-8 font-medium'>All Books</NavLink>
   <NavLink to='/addBooks' className='mr-8 font-medium'>Add Books</NavLink>
   <NavLink to='/myBooks' className='mr-8 font-medium'>My Books</NavLink>
@@ -37,11 +36,7 @@ const Navbar = () => {
     logOut()
     .then((res)=>{
       console.log(res.user)
-      Swal.fire({
-        title: "Log Out Successfully!",
-        icon: "success",
-        draggable: true
-      });
+      toast.success('Log Out successfully')
     })
     .catch((err)=>{
       console.log(err.message)

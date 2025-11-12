@@ -16,6 +16,7 @@ import PrivateRoute from './Auth/PrivateRoute.jsx'
 import About from './Componants/About.jsx'
 import MyBook from './Pages/MyBook.jsx'
 import ErrorPage from './Componants/ErrorPage.jsx'
+import { Toaster } from 'react-hot-toast'
 const router = createBrowserRouter([
   
   {
@@ -45,10 +46,7 @@ const router = createBrowserRouter([
         path: '/allBooks',
         Component: AllBooks
       },
-      {
-        path: '/about',
-        Component: About
-      },
+    
       {
         path:'/books/:id',
        element: <PrivateRoute>
@@ -78,6 +76,7 @@ createRoot(document.getElementById('root')).render(
   <StrictMode>
 <AuthProvider>
   <RouterProvider router={router}></RouterProvider>
+       <Toaster />
 </AuthProvider>
   </StrictMode>,
 )

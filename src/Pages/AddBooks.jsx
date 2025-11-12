@@ -1,9 +1,9 @@
 import React from 'react';
 import useAuth from '../Hooks/UseAuth';
 
-import Swal from 'sweetalert2';
 import { useNavigate } from 'react-router';
 import useAxiosSecure from '../Hooks/UseAxiosSecure';
+import toast from 'react-hot-toast';
 
 const AddBooks = () => {
   const {user} = useAuth()
@@ -33,13 +33,7 @@ instance.post('/books', newBooks)
 .then(data=>{
   console.log('After post ' , data.data)
    if(data.data.insertedId){
-                Swal.fire({
-                 position: "top-center",
-                 icon: "success",
-                 title: "Your book has been added",
-                 showConfirmButton: false,
-                 timer: 1500
-               });
+              toast.success('Your book has been added')
             }
 
             navigate('/allBooks')
@@ -50,7 +44,7 @@ instance.post('/books', newBooks)
 
   }
     return (
-         <div>
+         <div className='mb-15'>
          
                   <h1 className="text-5xl font-bold text-center my-10 ">Add A Book</h1>
              <div className="card  md:w-150 shrink-0 shadow-2xl mx-auto">

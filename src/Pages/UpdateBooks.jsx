@@ -6,7 +6,8 @@ import useAuth from '../Hooks/UseAuth';
 
 
 import useAxios from '../Hooks/UseAxios';
-import Swal from 'sweetalert2';
+
+import toast from 'react-hot-toast';
 
 
 const UpdateBooks = () => {
@@ -41,13 +42,7 @@ instance.patch(`/updateBooks/${book._id}`,newBooks)
 .then(data =>{
   console.log('after patch' , data.data)
  
-                  Swal.fire({
-                   position: "top-center",
-                   icon: "success",
-                   title: "Your book has been updated",
-                   showConfirmButton: false,
-                   timer: 1500
-                 });
+                 toast.success('Your book has been updated')
               
   navigate('/allBooks')
               
