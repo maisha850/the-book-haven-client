@@ -42,7 +42,7 @@ table th{
   @apply text-gray-600
 }
 table tr:nth-child(even){
-  @apply bg-white/80
+  @apply bg-white/80 
 }
 .title-text{
   @apply bg-gradient-to-br from-red-700 via-amber-600 to-stone-900 bg-clip-text text-transparent

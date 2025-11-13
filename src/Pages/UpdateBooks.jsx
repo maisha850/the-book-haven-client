@@ -44,7 +44,7 @@ instance.patch(`/updateBooks/${book._id}`,newBooks)
  
                  toast.success('Your book has been updated')
               
-  navigate('/allBooks')
+  navigate('/all-books')
               
 })
  

@@ -37,7 +37,7 @@ instance.post('/books', newBooks)
               toast.success('Your book has been added')
             }
 
-            navigate('/allBooks')
+            navigate('/all-books')
             setLoading(false)
 
 
@@ -49,7 +49,7 @@ if(loading){
 
   }
     return (
-         <div className='mb-15'>
+         <div className='w-11/12 mx-auto pb-15'>
          
                   <h1 className="text-5xl font-bold text-center my-10 ">Add A Book</h1>
              <div className="card  md:w-150 shrink-0 shadow-2xl mx-auto">

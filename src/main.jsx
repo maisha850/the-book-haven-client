@@ -30,7 +30,7 @@ const router = createBrowserRouter([
         Component: Home
       },
       {
-        path: '/addBooks',
+        path: '/add-book',
       element: <PrivateRoute>
         <AddBooks></AddBooks>
       </PrivateRoute>
@@ -44,18 +44,18 @@ const router = createBrowserRouter([
         Component: LogIn
       },
       {
-        path: '/allBooks',
+        path: '/all-books',
         Component: AllBooks
       },
     
       {
-        path:'/books/:id',
+        path:'/book-details/:id',
        element: <PrivateRoute>
         <BookDetails></BookDetails>
        </PrivateRoute>
       },
       {
-        path: '/updateBooks/:id',
+        path: '/update-book/:id',
         loader: ({params})=>fetch(`http://localhost:3000/updateBooks/${params.id}`),
        element: 
         <PrivateRoute>

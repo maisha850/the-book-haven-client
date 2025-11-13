@@ -8,8 +8,8 @@ const Navbar = () => {
   const {logOut , user} = use(AuthContext)
   const links = <>
   <NavLink to='/' className='mr-8 font-medium'>Home</NavLink>
-  <NavLink to='/allBooks' className='mr-8 font-medium'>All Books</NavLink>
-  <NavLink to='/addBooks' className='mr-8 font-medium'>Add Books</NavLink>
+  <NavLink to='/all-books' className='mr-8 font-medium'>All Books</NavLink>
+  <NavLink to='/add-book' className='mr-8 font-medium'>Add Books</NavLink>
   <NavLink to='/myBooks' className='mr-8 font-medium'>My Books</NavLink>
   {!user && <>
   <NavLink to='/logIn' className='mr-8 font-medium'>Log In</NavLink>

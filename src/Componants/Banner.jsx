@@ -29,15 +29,15 @@ const Banner = () => {
       >
     <div>
        <div>
-         <h3 className='text-7xl font-bold'> Welcome to <span className='text-primary'>The Book Haven</span></h3>
-      <p className='text-xl'>Your next favorite book is only a click away</p>
+         <h3 className='md:text-7xl text-5xl font-bold md:ml-0 ml-8'> Welcome to <span className='text-primary'>The Book Haven</span></h3>
+      <p className='text-xl  md:ml-0 ml-8'>Your next favorite book is only a click away</p>
        </div>
 
-<div className='flex gap-2'>
-  <Link to='/allBooks' className="mt-6 px-6 py-3  btn-primary text-white font-semibold rounded-lg  transition duration-300">
+<div className='flex gap-2  md:ml-0 ml-8'>
+  <Link to='/all-books' className="mt-6 px-6 py-3  btn-primary text-white font-semibold rounded-lg  transition duration-300">
   All Books
 </Link>
-<Link to="/addBooks" className="mt-6 px-6 py-3  btn-outlines text-white font-semibold rounded-lg transition duration-300">
+<Link to='/add-book' className="mt-6 px-6 py-3  btn-outlines text-white font-semibold rounded-lg transition duration-300">
   Create Book
 </Link>
     </div>

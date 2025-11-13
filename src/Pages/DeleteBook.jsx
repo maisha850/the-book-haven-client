@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import useAxiosSecure from '../Hooks/UseAxiosSecure';
 import useAuth from '../Hooks/UseAuth';
-import { Link, useParams } from 'react-router';
+import { Link, useNavigate, useParams } from 'react-router';
 import Swal from 'sweetalert2';
 import { IoIosStar, IoIosStarHalf } from 'react-icons/io';
 
@@ -12,6 +12,7 @@ const DeleteBook = () => {
     const instance = useAxiosSecure()
     const {user}= useAuth()
     const [book , setBook]=useState({})
+    const navigate = useNavigate()
     // const[refetch , setRefetch]=useState(false)
     useEffect(()=>{
         instance(`/dltBooks/${id}`)
@@ -42,6 +43,7 @@ const DeleteBook = () => {
         });
     
             })
+            navigate('/all-books')
 
       }
     });

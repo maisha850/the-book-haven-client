@@ -23,7 +23,7 @@ const MyBook = () => {
     return (
        <div>
          <div className='w-11/12 mx-auto py-15'>
-            <div className="overflow-x-auto  " >
+            <div className="overflow-x-auto md:table-md table-xs  " >
             <table className='table table-zebra bg-form '>
                  <thead className='bg-white/80 w-full'>
       <tr>
@@ -32,9 +32,10 @@ const MyBook = () => {
         <th>Title</th>
         <th>Author</th>
         <th>Genre</th>
-        <th>Ratings</th>
+
+        <th className='flex items-center gap-1'>Ratings <span>   <img className='w-4 h-4' src={star} alt="" /></span></th>
         <th></th>
-        <th></th>
+        
       </tr>
     </thead>
 
@@ -63,13 +64,13 @@ const MyBook = () => {
 
         </td>
         <td>{book.genre}</td>
-        <img className='w-4 h-4' src={star} alt="" />
+     
         
            
         <td> {book.rating}</td>
         
         <td className='flex flex-col items-center gap-3 '>
-       <Link to={`/updateBooks/${book._id}`} className='btn bg-gradient-to-br from-red-700 via-amber-600 to-stone-900  btn-sm rounded-3xl text-white shadow-xl'>Update</Link>
+       <Link to={`/update-book/${book._id}`} className='btn bg-gradient-to-br from-red-700 via-amber-600 to-stone-900  btn-sm rounded-3xl text-white shadow-xl'>Update</Link>
        <Link to={`/delete-book/${book._id}`} className='btn btn-outline border-amber-600 text-amber-700  btn-sm rounded-3xl  shadow-xl'>Delete books</Link>
         </td>
         
