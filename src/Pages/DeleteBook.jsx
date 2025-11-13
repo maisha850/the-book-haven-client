@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import useAxiosSecure from '../Hooks/UseAxiosSecure';
 import useAuth from '../Hooks/UseAuth';
-import { Link, useNavigate, useParams } from 'react-router';
+import {  useNavigate, useParams } from 'react-router';
 import Swal from 'sweetalert2';
 import { IoIosStar, IoIosStarHalf } from 'react-icons/io';
 
@@ -13,13 +13,13 @@ const DeleteBook = () => {
     const {user}= useAuth()
     const [book , setBook]=useState({})
     const navigate = useNavigate()
-    // const[refetch , setRefetch]=useState(false)
+
     useEffect(()=>{
         instance(`/dltBooks/${id}`)
         .then(data => {
             console.log('after myBooks post' , data.data)
             setBook(data.data)
-            // setRefetch(!refetch)
+           
         })
     },[user,instance,id])
      const handleDelete=(id)=>{

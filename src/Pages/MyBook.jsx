@@ -10,13 +10,13 @@ const MyBook = () => {
     const instance = useAxiosSecure()
     const {user}= useAuth()
     const [books , setBooks]=useState([])
-    // const[refetch , setRefetch]=useState(false)
+    
     useEffect(()=>{
         instance(`/myBooks?userEmail=${user.email}`)
         .then(data => {
             console.log('after myBooks post' , data.data)
             setBooks(data.data)
-            // setRefetch(!refetch)
+          
         })
     },[user,instance])
      

@@ -13,7 +13,7 @@ import BookDetails from './Pages/BookDetails.jsx'
 import UpdateBooks from './Pages/UpdateBooks.jsx'
 
 import PrivateRoute from './Auth/PrivateRoute.jsx'
-import About from './Componants/About.jsx'
+
 import MyBook from './Pages/MyBook.jsx'
 import ErrorPage from './Componants/ErrorPage.jsx'
 import { Toaster } from 'react-hot-toast'
@@ -56,7 +56,6 @@ const router = createBrowserRouter([
       },
       {
         path: '/update-book/:id',
-        loader: ({params})=>fetch(`http://localhost:3000/updateBooks/${params.id}`),
        element: 
         <PrivateRoute>
           <UpdateBooks></UpdateBooks>
