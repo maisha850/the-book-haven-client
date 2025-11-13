@@ -4,12 +4,12 @@
 
  ## Features of The Book Haven :
  
- -**Vast Collection of Books** – Explore thousands of books across genres like Horrors , Romance, Fantasy,  and more.
+- Vast Collection of Books** : Explore thousands of books across genres like Horrors , Romance, Fantasy,  and more.
 
--Categories & Collections – Browse curated book collections and trending lists.
+- Categories & Collections : Browse curated book collections and trending lists.
 
--**Beautiful Reading Interface** – Enjoy a clean, comfortable, and distraction-free reading experience.
+- Beautiful Reading Interface** : Enjoy a clean, comfortable, and distraction-free reading experience.
 
--**Reader Community** – Provides the facilities to the readers to share comments.
+- Reader Community** : Provides the facilities to the readers to share comments.
 
--**Latest Releases Section** – Stay updated with newly added titles and trending reads.
+- Latest Releases Section** : Stay updated with newly added titles and trending reads.
