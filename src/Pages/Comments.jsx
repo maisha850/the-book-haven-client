@@ -84,8 +84,8 @@ const Comments = ({ id, refresh }) => {
               />
               <div>
                 <h3 className="font-semibold">{comment.name}</h3>
-                <p className="text-sm text-gray-700">{comment.comment}</p>
-                <p className="text-xs text-gray-400">{timeAgo}</p>
+                <p className="text-sm ">{comment.comment}</p>
+                <p className="text-xs text-gray-500">{timeAgo}</p>
               </div>
             </div>
           );

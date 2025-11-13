@@ -49,9 +49,9 @@ console.log(res.user)
 
          <fieldset className="fieldset ">
           <label className="label text-lg text-secondary font-medium ">Email</label>
-          <input type="email" name='email' className="input bg-white text-gray-500 focus:outline-none focus:ring-2 focus:ring-amber-500 w-full" placeholder="Email" />
+          <input type="email" name='email' className="input bg-white text-black focus:outline-none focus:ring-2 focus:ring-amber-500 w-full" placeholder="Email" />
           <label className="label text-lg text-secondary font-medium ">Password</label>
-          <input type="password" name='password' className="input  bg-white text-gray-500  focus:outline-none focus:ring-2 focus:ring-amber-500 w-full" placeholder="Password" />
+          <input type="password" name='password' className="input  bg-white text-black  focus:outline-none focus:ring-2 focus:ring-amber-500 w-full" placeholder="Password" />
           <div><a className="link link-hover text-secondary font-medium  ">Forgot password?</a></div>
           <button className="w-full py-3 text-xl rounded-md text-slate-50 btn-active btn-primary mt-4">Log In</button>
           
