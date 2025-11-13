@@ -60,12 +60,12 @@ const DeleteBook = () => {
       
 <h3 className='text-3xl mt-5 font-bold'>{book.title}</h3>
 <div className='flex gap-6 mt-3'>
-    <p className='text-lg '>Author:<span className='text-secondary'> {book.author} </span></p>
-    <span className='text-secondary'>|</span>
+    <p className='text-lg '>Author:<span className=''> {book.author} </span></p>
+    <span className=''>|</span>
  <p className='flex gap-1 items-center'> <IoIosStar size={20} color='#F59E0B' /><IoIosStar size={20} color='#F59E0B' /><IoIosStar size={20} color='#F59E0B' /><IoIosStar size={20} color='#F59E0B' /><IoIosStarHalf size={20} color='#F59E0B'/><span className='text-lg font-semibold'>{book.rating}</span></p>
 </div>
 <div className="divider"></div>
-<p className='text-gray-600 w-100 line-clamp-3'>{book.summary}</p>
+<p className=' w-100 line-clamp-3'>{book.summary}</p>
 
 <button className='btn btn-wide bg-gradient-to-br from-red-700 via-amber-600 to-stone-900 text-white  mt-4' onClick={()=>handleDelete(book._id)}>Delete</button>
             </div>
