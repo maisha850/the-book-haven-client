@@ -55,7 +55,7 @@ const Navbar = () => {
        {links}
       </ul>
     </div>
-    <a className=" text-xl"><Logo></Logo></a>
+    <Link to={'/'} className=" text-xl"><Logo></Logo></Link>
   </div>
   <div className="navbar-center hidden lg:flex ">
     <ul className="menu menu-horizontal px-1">
