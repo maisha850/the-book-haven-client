@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Link, useNavigate, useParams } from 'react-router';
+import { Link, useParams } from 'react-router';
 import { IoIosStar, IoIosStarHalf } from 'react-icons/io';
 import { TbCategory } from 'react-icons/tb';
 // import { formatDistanceToNow } from "date-fns";
@@ -7,14 +7,14 @@ import { FaRegUser } from 'react-icons/fa6';
 import { MdAttachEmail } from 'react-icons/md';
 import useAuth from '../Hooks/UseAuth';
 import useAxiosSecure from '../Hooks/UseAxiosSecure';
-import Swal from 'sweetalert2';
+// import Swal from 'sweetalert2';
 import useAxios from '../Hooks/UseAxios';
 import Comments from './Comments';
 
 const BookDetails = () => {
     const {user}=useAuth()
   const [book , setBook]=useState({})
-  const navigate = useNavigate()
+  // const navigate = useNavigate()
     const {id}=useParams()
     const instance = useAxiosSecure()
     const axiosInstance = useAxios()
@@ -30,34 +30,34 @@ const BookDetails = () => {
 
     },[instance, id])
 
-    const handleDelete=()=>{
-        Swal.fire({
-  title: "Are you sure?",
-  text: "You won't be able to revert this!",
-  icon: "warning",
-  showCancelButton: true,
-  confirmButtonColor: "#3085d6",
-  cancelButtonColor: "#d33",
-  confirmButtonText: "Yes, delete it!"
-}).then((result) => {
-  if (result.isConfirmed) {
-      instance.delete(`/books/${book._id}`)
-      .then(data =>{
-            console.log('after delete' , data.data)
-             Swal.fire({
-      title: "Deleted!",
-      text: "Your file has been deleted.",
-      icon: "success"
-    });
-navigate('/allBooks')
-        })
+//     const handleDelete=()=>{
+//         Swal.fire({
+//   title: "Are you sure?",
+//   text: "You won't be able to revert this!",
+//   icon: "warning",
+//   showCancelButton: true,
+//   confirmButtonColor: "#3085d6",
+//   cancelButtonColor: "#d33",
+//   confirmButtonText: "Yes, delete it!"
+// }).then((result) => {
+//   if (result.isConfirmed) {
+//       instance.delete(`/books/${book._id}`)
+//       .then(data =>{
+//             console.log('after delete' , data.data)
+//              Swal.fire({
+//       title: "Deleted!",
+//       text: "Your file has been deleted.",
+//       icon: "success"
+//     });
+// navigate('/allBooks')
+//         })
    
-  }
-});
+//   }
+// });
       
         
 
-    }
+//     }
     const handleComment=(e)=>{
        e.preventDefault()
        const comment = e.target.comment.value
