@@ -10,71 +10,32 @@ const UpdateBooks = () => {
   const navigate = useNavigate();
   const { id } = useParams();
   const instance = useAxios();
+  const [book, setBook] = useState({});
 
-  const [book, setBook] = useState(null);
-  const [loading, setLoading] = useState(true);
-
-  // ✅ Fetch the book data using axios
   useEffect(() => {
-    instance
-      .get(`/updateBooks/${id}`)
-      .then((res) => {
-        setBook(res.data);
-        setLoading(false);
-      })
-      .catch((err) => {
-        console.error(err);
-        toast.error('Failed to load book details');
-        setLoading(false);
-      });
+    instance.get(`/updateBooks/${id}`).then((res) => setBook(res.data));
   }, [id, instance]);
 
-  // ✅ Handle form submit (Update)
   const handleUpdateBooks = (e) => {
     e.preventDefault();
 
     const form = e.target;
-    const title = form.title.value;
-    const author = form.author.value;
-    const genre = form.genre.value;
-    const rating = form.rating.value;
-    const summary = form.summary.value;
-    const coverImage = form.coverImage.value;
-
     const updatedBook = {
-      title,
-      author,
-      genre,
-      rating,
-      summary,
-      coverImage,
+      title: form.title.value,
+      author: form.author.value,
+      genre: form.genre.value,
+      rating: form.rating.value,
+      summary: form.summary.value,
+      coverImage: form.coverImage.value,
       userEmail: user?.email,
       userName: user?.displayName,
     };
 
-    instance
-      .patch(`/updateBooks/${book._id}`, updatedBook)
-      .then((res) => {
-        if (res.data.modifiedCount > 0 || res.status === 200) {
-          toast.success('Book updated successfully!');
-          navigate('/all-books');
-        } else {
-          toast.error('No changes were made.');
-        }
-      })
-      .catch((err) => {
-        console.error(err);
-        toast.error('Failed to update book.');
-      });
+    instance.patch(`/updateBooks/${book._id}`, updatedBook).then(() => {
+      toast.success('Book updated successfully!');
+      navigate('/all-books');
+    });
   };
-
-  if (loading) {
-    return <p className="text-center text-xl mt-20">Loading book details...</p>;
-  }
-
-  if (!book) {
-    return <p className="text-center text-xl mt-20 text-red-500">Book not found.</p>;
-  }
 
   return (
     <div className="w-11/12 mx-auto pb-15">
@@ -88,9 +49,9 @@ const UpdateBooks = () => {
                 defaultValue={book.title}
                 type="text"
                 name="title"
-                required
                 className="input rounded-full focus:outline-none focus:ring-2 focus:ring-amber-500 bg-white text-gray-800 w-full"
                 placeholder="Title"
+                required
               />
 
               <label className="label text-lg text-secondary font-medium">Author</label>
@@ -98,9 +59,9 @@ const UpdateBooks = () => {
                 defaultValue={book.author}
                 type="text"
                 name="author"
-                required
                 className="input rounded-full focus:outline-none focus:ring-2 focus:ring-amber-500 bg-white text-gray-800 w-full"
                 placeholder="Author"
+                required
               />
 
               <label className="label text-lg text-secondary font-medium">Genre</label>
@@ -121,14 +82,11 @@ const UpdateBooks = () => {
               <label className="label text-lg text-secondary font-medium">Rating</label>
               <input
                 defaultValue={book.rating}
-                type="number"
+                type="text"
                 name="rating"
-                min="1"
-                max="5"
-                step="0.5"
-                required
                 className="input rounded-full focus:outline-none focus:ring-2 focus:ring-amber-500 bg-white text-gray-800 w-full"
-                placeholder="Rating (1-5)"
+                placeholder="Rating"
+                required
               />
 
               <label className="label text-lg text-secondary font-medium">Summary</label>
@@ -145,9 +103,9 @@ const UpdateBooks = () => {
                 defaultValue={book.coverImage}
                 type="url"
                 name="coverImage"
-                required
                 className="input bg-white text-gray-800 w-full rounded-full focus:outline-none focus:ring-2 focus:ring-amber-500"
                 placeholder="https://example.com/image.jpg"
+                required
               />
 
               <button className="w-full py-3 text-xl text-slate-50 btn-active btn-primary mt-4">
