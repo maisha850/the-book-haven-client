@@ -1,9 +1,6 @@
 
 # 📚 The Book Haven – Client Side
 
-A simple and user-friendly online book management web application.  
-Users can browse books, read details, and manage their own book list after logging in.
-
 🔗 **Live Site:** https://book-haven-c3608.web.app/  
 
 ---
