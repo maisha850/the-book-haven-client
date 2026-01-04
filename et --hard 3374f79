@@ -1,0 +1,33 @@
+[33m9152e0c[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m HEAD@{0}: reset: moving to origin/main
+[33m4839041[m HEAD@{1}: checkout: moving from main to main
+[33m4839041[m HEAD@{2}: commit: added footer
+[33m3052d8a[m HEAD@{3}: checkout: moving from main to main
+[33m3052d8a[m HEAD@{4}: checkout: moving from 2e7dd956c0ab2828ab496549825a3a10f5222778 to main
+[33m2e7dd95[m HEAD@{5}: commit: added footer
+[33m3374f79[m HEAD@{6}: pull origin main --rebase (pick): added assets folder
+[33m9152e0c[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m HEAD@{7}: pull origin main --rebase (start): checkout 9152e0c865b4280244d2cb925f9020fdd8acdb70
+[33m3052d8a[m HEAD@{8}: commit: added footer
+[33m3da4aec[m HEAD@{9}: commit (merge): updated all books
+[33m2142f8b[m HEAD@{10}: commit: added assets folder
+[33m9c1e77c[m HEAD@{11}: commit: added live url
+[33ma402c64[m HEAD@{12}: commit: updated logo
+[33md16062b[m HEAD@{13}: commit: updated update-books
+[33m4e4e3f2[m HEAD@{14}: commit: updated readme file
+[33mac83226[m HEAD@{15}: commit: added bullet
+[33me83f50c[m HEAD@{16}: commit: added bullet
+[33m12cffdb[m HEAD@{17}: commit: added readme file
+[33m488a0c1[m HEAD@{18}: commit: updated responsive
+[33m5d34808[m HEAD@{19}: commit: added responsive
+[33m497ca95[m HEAD@{20}: commit: added delete section
+[33mbd1e30b[m HEAD@{21}: commit: added comment section
+[33me661443[m HEAD@{22}: commit: added the featured books
+[33m8865738[m HEAD@{23}: commit: added updated functionalites
+[33m34c19a9[m HEAD@{24}: commit: added theme
+[33m086db2b[m HEAD@{25}: commit: added my book
+[33m87ba580[m HEAD@{26}: commit: added logo and card
+[33mb2f956c[m HEAD@{27}: commit: added delete functionalities
+[33mde3383d[m HEAD@{28}: commit: added the add book and updated book functionlities
+[33m2eb2327[m HEAD@{29}: commit: added all books
+[33mb97939c[m HEAD@{30}: commit: added banner and navber
+[33m754227e[m HEAD@{31}: Branch: renamed refs/heads/master to refs/heads/main
+[33m754227e[m HEAD@{33}: commit (initial): first commit
