@@ -6,7 +6,7 @@ const BookCard = ({book}) => {
     const {coverImage , author , title , rating, _id, summary, genre}=book
     return (
       
-            <div className="card border border-gray-300 bg-base-100 w-80 shadow-sm">
+            <div className="card dark:bg-gray-800  bg-base-100 w-80 shadow-sm">
   <figure className='bg-orange-100 py-4'>
     <img
     className='hover:scale-105 transition-transform duration-200 w-50 h-80 '

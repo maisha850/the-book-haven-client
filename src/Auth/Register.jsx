@@ -1,14 +1,15 @@
-import React, { use } from 'react';
+
 import { Link, useNavigate } from 'react-router';
-import { AuthContext } from './AuthContext';
 
 import toast from 'react-hot-toast';
+import useAxiosSecure from '../Hooks/UseAxiosSecure';
+import useAuth from '../Hooks/UseAuth';
 
 const Register = () => {
-   const {createUser , setUser, updateUser, signWithGoogle}=use(AuthContext)
+   const {createUser ,  updateUser, signWithGoogle}=useAuth()
   const navigate=useNavigate()
-  
-  const handleRegister=(e)=>{
+  const instance = useAxiosSecure()
+  const handleRegister=async(e)=>{
     e.preventDefault()
     
     const email=e.target.email.value
@@ -23,47 +24,80 @@ const Register = () => {
       return toast.error("Password must be at least 6 characters long and includes at least one uppercase and one lower case")
 
     }
-    createUser(email,password)
-    .then((res)=>{
-      updateUser(displayName, photoURL)
-      .then(()=>{
- console.log(res.user)
-    setUser(res.user)
- toast.success('Registered Successfully!')
+       const userInfo = {
+  email,displayName,photoURL
+}
+ try{
+await createUser(email , password)
+await instance.post('/users', userInfo)
+
+await updateUser(displayName,photoURL)
+toast.success('Registered Successfully!')
 navigate('/')
-      })
-      .catch(err=>{
-        console.log(err.message)
-      })
+   }
+   catch(err){
+console.log(err)
+toast.error(err?.message)
+   }
+    }
+    const handleWithGoogle = async () => {
+    try {
+      //User Registration using google
+     const res= await signWithGoogle()
+       const userInfo = {
+    email : res.user.email,
+      displayName : res.user.displayName,
+                    photoURL : res.user.photoURL
+}
+      await instance.post('/users' , userInfo)
+      toast.success('Registered Successfully!')
+      navigate('/')
+    } catch (err) {
+      console.log(err)
+      toast.error(err?.message)
+    }
+  }
+//     createUser(email,password)
+//     .then((res)=>{
+//       updateUser(displayName, photoURL)
+//       .then(()=>{
+//  console.log(res.user)
+//     setUser(res.user)
+//  toast.success('Registered Successfully!')
+// navigate('/')
+//       })
+//       .catch(err=>{
+//         console.log(err.message)
+//       })
    
    
     
 
 
      
-    })
-    .catch((err)=>{
-      console.log(err.message)
-   toast.error(err.message)
+//     })
+//     .catch((err)=>{
+//       console.log(err.message)
+//    toast.error(err.message)
 
-    })
+//     })
    
 
-  }
+//   }
 
-  const handleWithGoogle=()=>{
-    signWithGoogle()
-    .then((res)=>{
-setUser(res.user)
-navigate('/')
+//   const handleWithGoogle=()=>{
+//     signWithGoogle()
+//     .then((res)=>{
+// setUser(res.user)
+// navigate('/')
  
 
-    })
-    .catch((err)=>{
-      console.log(err.message)
- toast.error(err.message)
-    })
-  }
+//     })
+//     .catch((err)=>{
+//       console.log(err.message)
+//  toast.error(err.message)
+//     })
+//   }
     return (
         <div className='w-11/12 mx-auto py-15'>
             <title>Register</title>

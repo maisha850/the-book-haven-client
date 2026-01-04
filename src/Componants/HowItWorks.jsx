@@ -49,17 +49,17 @@ const HowItWorks = () => {
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.2 }}
-              className="bg-gray-50 border border-gray-200 rounded-2xl p-8 text-center hover:shadow-lg transition"
+              className="bg-gray-50 dark:bg-gray-800  border border-gray-200 dark:border-gray-600 rounded-2xl p-8 text-center hover:shadow-lg transition"
             >
               <div className="w-14 h-14 mx-auto flex items-center justify-center rounded-full bg-orange-100 text-orange-500 text-2xl mb-6">
                 {step.icon}
               </div>
 
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">
+              <h3 className="text-xl dark:text-gray-100  font-semibold text-gray-900 mb-2">
                 {step.title}
               </h3>
 
-              <p className="text-gray-600 leading-relaxed">
+              <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
                 {step.description}
               </p>
             </motion.div>

@@ -1,14 +1,18 @@
 import React from 'react';
+
+
 import useRoles from '../../Hooks/useRoles';
-import AdminDash from './Admin/AdminDash';
-import UserDash from './UserDash';
+
+import AdminDashboard from './AdminDashboard';
+import UserMgts from './UserMgts';
 
 const DashHome = () => {
     const {role}=useRoles()
     return (
         <div>
-            {role === 'admin' && <AdminDash></AdminDash>}
-            {role === 'user' && <UserDash></UserDash>}
+            {role === 'admin' && <AdminDashboard></AdminDashboard>}
+            {role === 'user' && <UserMgts></UserMgts> }
+           
             
         </div>
     );

@@ -12,9 +12,10 @@ import {
   Legend,
   ArcElement,
 } from "chart.js";
-import useAxiosSecure from "../../../Hooks/useAxiosSecure";
+
 import { FaGears, FaUsers } from "react-icons/fa6";
 import Swal from "sweetalert2";
+import useAxiosSecure from "../../Hooks/UseAxiosSecure";
 
 ChartJS.register(
   CategoryScale,
@@ -26,7 +27,7 @@ ChartJS.register(
   ArcElement
 );
 
-const AdminDash = () => {
+const AdminDashboard = () => {
   const axios = useAxiosSecure();
   const [books, setBooks] = useState([]);
   const [users, setUsers] = useState([]);
@@ -333,4 +334,4 @@ Swal.fire({
   );
 };
 
-export default AdminDash;
+export default AdminDashboard;

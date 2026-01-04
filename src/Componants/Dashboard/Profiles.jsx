@@ -3,7 +3,7 @@ import toast from "react-hot-toast";
 import useAuth from "../../Hooks/UseAuth";
 import useAxios from "../../Hooks/UseAxios";
 
-const Profile = () => {
+const Profiles = () => {
   const { updateUser } = useAuth();
   const{user}=useAuth()
   const axiosSecure = useAxios();
@@ -160,4 +160,4 @@ const Input = ({ label, ...props }) => (
   </div>
 );
 
-export default Profile;
+export default Profiles;

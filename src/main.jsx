@@ -19,6 +19,13 @@ import ErrorPage from './Componants/ErrorPage.jsx'
 import { Toaster } from 'react-hot-toast'
 import DeleteBook from './Pages/DeleteBook.jsx'
 import About from './Componants/About.jsx'
+import {QueryClient, QueryClientProvider} from '@tanstack/react-query'
+import Dashboard from './Componants/Dashboard/Dashboard.jsx'
+import DashHome from './Componants/Dashboard/DashHome.jsx'
+import UserMgts from './Componants/Dashboard/UserMgts.jsx'
+import ManageBooks from './Componants/Dashboard/ManageBooks.jsx'
+import Profiles from './Componants/Dashboard/Profiles.jsx'
+const queryClient = new QueryClient()
 const router = createBrowserRouter([
   
   {
@@ -30,12 +37,7 @@ const router = createBrowserRouter([
         index: true,
         Component: Home
       },
-      {
-        path: '/add-book',
-      element: <PrivateRoute>
-        <AddBooks></AddBooks>
-      </PrivateRoute>
-      },
+   
       {
         path: '/register',
         Component: Register
@@ -67,12 +69,7 @@ const router = createBrowserRouter([
         </PrivateRoute>
     
       },
-      {
-        path: '/myBooks',
-        element: <PrivateRoute>
-          <MyBook></MyBook>
-        </PrivateRoute>
-      },
+  
       {
         path: '/delete-book/:id',
        
@@ -82,13 +79,48 @@ const router = createBrowserRouter([
       }
 
     ]
+  },
+  {
+    path: '/dashboard',
+    element:<PrivateRoute>
+      <Dashboard></Dashboard>
+    </PrivateRoute>,
+    children:[
+      {
+        index:true,
+        Component: DashHome
+      },
+      {
+        path: 'user-management',
+        element: <UserMgts></UserMgts>
+      },
+      {
+        path:'manage-books',
+        element:<ManageBooks></ManageBooks>
+      },
+      {
+        path:'add-book',
+        Component:AddBooks
+      },
+      {
+        path:'myBooks',
+        Component:MyBook
+      },
+      {
+        path: 'profile',
+        Component:Profiles
+      }
+    ]
   }
 ])
 createRoot(document.getElementById('root')).render(
   <StrictMode>
+    <QueryClientProvider client={queryClient}>
 <AuthProvider>
   <RouterProvider router={router}></RouterProvider>
        <Toaster />
 </AuthProvider>
+    </QueryClientProvider>
+
   </StrictMode>,
 )

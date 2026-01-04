@@ -5,9 +5,10 @@ import React, { useState } from 'react';
 
 import { useQuery } from '@tanstack/react-query';
 import Swal from 'sweetalert2';
-import useAxiosSecure from '../../../Hooks/useAxiosSecure';
+import useAxiosSecure from '../../Hooks/UseAxiosSecure';
 
-const UserMgt = () => {
+
+const UserMgts = () => {
     const instance = useAxiosSecure();
     const [searchText, setSearchText] = useState('');
 
@@ -146,4 +147,4 @@ const UserMgt = () => {
     );
 };
 
-export default UserMgt;
+export default UserMgts;
