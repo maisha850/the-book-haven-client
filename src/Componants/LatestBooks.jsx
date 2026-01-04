@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import useAxios from '../Hooks/UseAxios';
 import BookCard from './BookCard';
+import { motion } from "framer-motion";
 
 const LatestBooks = () => {
     const [books , setBooks]=useState([])
@@ -18,8 +19,16 @@ const LatestBooks = () => {
 
     return (
         <div>
-        <div className='flex justify-center items-center flex-wrap gap-8'>
-            {books.map(book=><BookCard key={book._id} book={book}></BookCard> )}
+        <div className='grid md:grid-cols-3 lg:grid-cols-4 gap-15'>
+            {books.map((book,index)=>
+              <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.2 }}
+              className=""
+            >
+            <BookCard key={book._id} book={book}></BookCard> </motion.div>)}
         </div>
         </div>
     );

@@ -18,6 +18,7 @@ import MyBook from './Pages/MyBook.jsx'
 import ErrorPage from './Componants/ErrorPage.jsx'
 import { Toaster } from 'react-hot-toast'
 import DeleteBook from './Pages/DeleteBook.jsx'
+import About from './Componants/About.jsx'
 const router = createBrowserRouter([
   
   {
@@ -46,6 +47,10 @@ const router = createBrowserRouter([
       {
         path: '/all-books',
         Component: AllBooks
+      },
+      {
+        path:'/about',
+        Component: About
       },
     
       {
