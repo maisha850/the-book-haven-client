@@ -36,7 +36,7 @@ const HowItWorks = () => {
           <h2 className="text-5xl font-bold ">
             How It <span className="text-primary">Works</span>
           </h2>
-          <p className="mt-3 ">
+          <p className="mt-3 text-gray-500 ">
             From signup to reading — it’s that simple
           </p>
         </motion.div>

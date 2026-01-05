@@ -11,6 +11,7 @@ const Navbar = () => {
   <NavLink to='/all-books' className='mr-8 font-medium'>All Books</NavLink>
  <NavLink to='/about' className='mr-8 font-medium'>About</NavLink>
   <NavLink to='/dashboard' className='mr-8 font-medium'>Dashboard</NavLink>
+  <NavLink to='/privacy-policy' className='mr-8 font-medium'>Privacy & Policy</NavLink>
   
   {!user && <>
   <NavLink to='/logIn' className='mr-8 font-medium'>Log In</NavLink>

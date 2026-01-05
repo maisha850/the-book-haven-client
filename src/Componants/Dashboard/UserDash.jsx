@@ -53,7 +53,7 @@ useEffect(() => {
 
   // Overview cards
   const features = [
-    { icon: <FaLock className="text-blue-500 w-6 h-6" />, title: "Secure Login", desc: "Firebase Auth" },
+   
     { icon: <FaBook className="text-green-500 w-6 h-6" />, title: "Browse Books", desc: "By category" },
     { icon: <FaBook className="text-purple-500 w-6 h-6" />, title: "Book Details", desc: "Detailed view" },
     { icon: <FaPlus className="text-yellow-500 w-6 h-6" />, title: "Add Book", desc: "Create new books" },
@@ -103,9 +103,9 @@ useEffect(() => {
   return (
     <div className="p-6 space-y-6">
       {/* Overview Cards */}
-      <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3">
+      <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
         {features.map((feature, idx) => (
-          <div key={idx} className="bg-gray-100 dark:bg-gray-800 rounded-xl shadow-md p-5 flex flex-col items-center justify-center gap-3 hover:scale-105 transition-transform">
+          <div key={idx} className="bg-gray-100 dark:bg-gray-800 rounded-xl shadow-md p-4 flex flex-col items-center justify-center gap-3 hover:scale-105 transition-transform">
             <div className="p-3 bg-gray-100 dark:bg-gray-700 rounded-full">{feature.icon}</div>
             <h3 className="text-lg font-semibold text-gray-800 dark:text-gray-200">{feature.title}</h3>
             <p className="text-gray-500 dark:text-gray-400 text-sm">{feature.desc}</p>
@@ -115,12 +115,12 @@ useEffect(() => {
 
       {/* Charts */}
       <div className="grid gap-6 md:grid-cols-2">
-        <div className="bg-white dark:bg-gray-800 p-5 rounded-xl shadow-md">
-          <h3 className="font-semibold mb-4 text-gray-800 dark:text-gray-200">Books per Category (Bar Chart)</h3>
+        <div className="bg-white dark:bg-gray-800 p-5 md:w-full w-100 rounded-xl shadow-md">
+          <h3 className="font-semibold  mb-4 text-gray-800 dark:text-gray-200">Books per Category (Bar Chart)</h3>
           <Bar data={barData} />
         </div>
 
-        <div className="bg-white dark:bg-gray-800 p-5 rounded-xl shadow-md">
+        <div className="bg-white dark:bg-gray-800 md:w-full w-100 p-5 rounded-xl shadow-md">
           <h3 className="font-semibold mb-4 text-gray-800 dark:text-gray-200">Books Distribution (Pie Chart)</h3>
           <Pie data={pieData} />
         </div>

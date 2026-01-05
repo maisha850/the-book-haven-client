@@ -19,7 +19,8 @@ const FeaturedBook = () => {
     }
 
     return (
-        <div className='ml-6 flex gap-6'>
+        <div className='ml-6  flex gap-6'>
+       
             {
                 books.map(book=><div key={book._id} >
 

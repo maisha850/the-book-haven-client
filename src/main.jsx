@@ -25,6 +25,7 @@ import DashHome from './Componants/Dashboard/DashHome.jsx'
 import UserMgts from './Componants/Dashboard/UserMgts.jsx'
 import ManageBooks from './Componants/Dashboard/ManageBooks.jsx'
 import Profiles from './Componants/Dashboard/Profiles.jsx'
+import PrivacyPolicy from './Pages/PrivacyPolicy.jsx'
 const queryClient = new QueryClient()
 const router = createBrowserRouter([
   
@@ -76,6 +77,10 @@ const router = createBrowserRouter([
          element: <PrivateRoute>
           <DeleteBook></DeleteBook>
          </PrivateRoute>
+      },
+      {
+        path:'/privacy-policy',
+        Component: PrivacyPolicy
       }
 
     ]

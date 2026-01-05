@@ -127,7 +127,7 @@ const Dashboard = () => {
             <FaBars />
           </button>
 
-          <h1 className="text-3xl font-semibold">Welcome Back <span className="">👋</span></h1>
+          <h1 className="text-3xl font-semibold">Hello! <span className="text-primary font-bold">{user.displayName}</span><span className="">👋</span></h1>
 
           {/* Profile Dropdown */}
           <div className="relative" ref={dropdownRef}>

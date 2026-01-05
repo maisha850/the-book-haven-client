@@ -223,7 +223,7 @@ const AllBooks = () => {
 
 
   return (
-    <div className='w-10/12 mx-auto py-15'>
+    <div className='w-11/12 mx-auto py-15'>
       {/* Search Bar */}
       <div className='mb-8'>
  {/* Search & Filter */}
@@ -289,7 +289,7 @@ const AllBooks = () => {
       </div>
 
       {/* Books Grid */}
-      <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6'>
+      <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10'>
         {currentBooks.length > 0 ? (
           currentBooks.map(book => <BookCard key={book._id} book={book} />)
         ) : (
